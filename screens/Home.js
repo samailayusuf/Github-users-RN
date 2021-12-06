@@ -1,15 +1,16 @@
 import React from 'react'
 import { View, Text, Button } from 'react-native'
+import User from './User'
+import MyPicker from './MyPicker'
+import states from '../assets/states.js'
 
 const Home = ({ navigation }) => {
+    console.log(states)
     return (
         <View>
-            <Text>Home page</Text>
-            <Button
-                title="Go to settings"
-                onPress={() => navigation.navigate('Settings', 
-                {image:'imgURL', name:'thename', profile:'profile_URL'})}
-      />
+            <User/>
+            <MyPicker states={states}/>
+            <Button title="Press me"></Button>
         </View>
     )
 }
