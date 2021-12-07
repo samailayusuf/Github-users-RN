@@ -21,17 +21,20 @@ const styles = StyleSheet.create({
     container:{
         flexDirection:'row',
         height:100,
-        borderWidth:2,
-        borderColor: "black",
+        borderWidth:1,
+        borderColor: "#00072d",
         padding: 20,
         alignItems:'center',
-        justifyContent:'space-around',
+        justifyContent:'space-between',
+        marginHorizontal:5,
+        marginTop:5,
+        backgroundColor:'#0a2472'
     },
     imageContainer:{
         height:50,
         width:50,
-        borderColor:'black',
-        borderWidth:2,
+        borderColor:'#FFF',
+        borderWidth:1,
         borderRadius:10
     },
     image:{
@@ -40,7 +43,8 @@ const styles = StyleSheet.create({
     },
     text:{
         fontSize:18,
-        fontWeight:'bold'
+        fontWeight:'bold',
+        color:'#FFF'
     }
 
 })

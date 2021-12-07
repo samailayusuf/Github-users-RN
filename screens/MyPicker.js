@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
-import { View, Text, Picker, StyleSheet} from 'react-native'
+import { View, Text, StyleSheet} from 'react-native'
+import {Picker} from '@react-native-picker/picker'
 
 const MyPicker = ({states}) => {
     
@@ -24,15 +25,19 @@ const MyPicker = ({states}) => {
 
 const styles = StyleSheet.create({
     container: {
-      paddingTop: 10,
+      padding: 0,
       alignItems: "center",
-      backgroundColor:'#abc'
+      borderRadius:10,
+      borderWidth:0,
+      borderColor:'#ec6537',
+      width:100,
+      color:'#ec6537'
     },
     picker:{
-        height: 50, 
-        width: 150,
-        borderWidth:2,
-      borderColor:'black',
+        height: 30, 
+        width: 100,
+        margin:1
+        
     }
   });
 
