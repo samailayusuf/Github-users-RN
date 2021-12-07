@@ -1,13 +1,25 @@
-import React from 'react'
-import { View, TextInput, TouchableOpacity, StyleSheet} from 'react-native'
+import React , {useState} from 'react'
+import { View, TextInput, TouchableOpacity, StyleSheet, Button} from 'react-native'
 import MyPicker from './MyPicker'
 
-const Form = ({ navigation, states  }) => {
+const Form = ({ navigation, states, onChangeText, onValueChange,onPress, language }) => {
+    const [text, setText] = useState("")
     return (
-        <View style={styles.container}>
-            <TextInput style={styles.text} placeholder="Enter programming language here"/>
-            <MyPicker style={styles.picker} states={states}/>
+
+        <View>
+            <View style={styles.container}>
+                <TextInput style={styles.text} 
+                        placeholder="Enter programming language here"
+                        value={language}
+                        onChangeText={(text) => {
+                            onChangeText(text)
+                            setText(text)
+                        }}/>
+                <MyPicker style={styles.picker} states={states} onValueChange={onValueChange}/>
+           </View>
+           <Button title="Submit" onPress={onPress} style={{marginHorizontal:5}}>Submit</Button>
         </View>
+        
     )
 }
 
@@ -24,7 +36,7 @@ const styles = StyleSheet.create({
         fontSize:16,
         width:150,
         height:'80%',
-        flex:2,
+        flex:1,
         padding:3
     },
     picker:{

@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import { View, Text, StyleSheet} from 'react-native'
 import {Picker} from '@react-native-picker/picker'
 
-const MyPicker = ({states}) => {
+const MyPicker = ({states, onValueChange}) => {
     
       
     const [selectedValue, setSelectedValue] = useState("");
@@ -11,7 +11,10 @@ const MyPicker = ({states}) => {
             <Picker
                 selectedValue={selectedValue}
                 style={styles.picker}
-                onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
+                onValueChange={ itemValue => {
+                    onValueChange(itemValue)
+                    setSelectedValue(itemValue)
+                }}
             >
                 {
                     states.map((el, key)=>(

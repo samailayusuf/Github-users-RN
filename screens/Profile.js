@@ -1,11 +1,34 @@
 import React from 'react'
-import { View, Image, StyleSheet, Text } from 'react-native'
+import { View, Image, StyleSheet, Text, Alert, Share, TouchableOpacity, ActivityIndicator } from 'react-native'
 import { Ionicons } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons'; 
+import * as Linking from 'expo-linking'
 
 
 const Profile = ({navigation, route}) => {
     const {name, image, profileURL} = route.params
+
+    const onShare = async () => {
+        try {
+          const result = await Share.share({
+            message:
+              'Check out this awesome developer |' + profileURL,
+          });
+          if (result.action === Share.sharedAction) {
+            if (result.activityType) {
+              // shared with activity type of result.activityType
+            } else {
+              // shared
+            }
+          } else if (result.action === Share.dismissedAction) {
+            // dismissed
+          }
+        } catch (error) {
+          alert(error.message);
+        }
+    }
+
+
     return (
         <View style={styles.page}>
             <View style={styles.container}>
@@ -16,15 +39,20 @@ const Profile = ({navigation, route}) => {
             <Text style={styles.text}>@{name}</Text>
            </View>
 
-           <View>
-           <Ionicons name="link" size={32} color="black" />
-           <Text>Visit Profile</Text>
-           </View>
+            <View style={styles.iconContainer}>
+                <TouchableOpacity style={styles.icon} onPress={ () => Linking.openURL(profileURL)}>
+                <Ionicons name="link" size={32} color="black" />
+                <Text >Visit Profile</Text>
+                </TouchableOpacity>
 
-           <View>
-           <Entypo name="share" size={24} color="black" />
-           <Text>Share Profile</Text>
-           </View>
+                <TouchableOpacity style={styles.icon} onPress={onShare}>
+                <Entypo name="share" size={32} color="black" />
+                <Text >Share Profile</Text>
+                </TouchableOpacity>
+            </View>
+
+            <ActivityIndicator size="large" />
+           
         </View>
         
     )
@@ -61,7 +89,19 @@ const styles = StyleSheet.create({
     },
     page:{
         backgroundColor:'#ddd',
-        height:'100%'
+        height:'100%',
+    },
+    icon:{
+        margin:20,
+        justifyContent:'center',
+        alignItems:'center'
+    },
+    iconContainer:{
+        flexDirection:'row',
+        alignSelf:'center',
+        margin:40,
+        justifyContent:'space-between',
+        alignItems:'center'
     }
 })
 
