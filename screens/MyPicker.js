@@ -29,9 +29,9 @@ const styles = StyleSheet.create({
       alignItems: "center",
       borderRadius:10,
       borderWidth:0,
-      borderColor:'#ec6537',
+      borderColor:'#ddd',
       width:100,
-      color:'#ec6537'
+      color:'#FFF'
     },
     picker:{
         height: 30, 

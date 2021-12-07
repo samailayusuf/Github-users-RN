@@ -26,14 +26,19 @@ const Home = ({ navigation }) => {
     console.log(states)
     return (
         <View>
+            {/* <Button title="Press me" onPress={()=>navigation.navigate("Profile")}></Button> */}
             <Form states= {states}/>
+
+            <ScrollView>
             {users.map((element, key)=>(
-            <User key={key}/>
+            
+            <User key={key} navigation={navigation} name={element.login} image={element.avatar_url} profileURL={element.html_url}/>
+
             ))}
+            </ScrollView>
 
-
-            <MyPicker states={states}/>
-            <Button title="Press me"></Button>
+            
+            
         </View>
     )
 }

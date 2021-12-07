@@ -1,19 +1,25 @@
 import React from 'react'
-import { View, Text, Button, TouchableOpacity, StyleSheet, Image } from 'react-native'
-import image from '../assets/splash.png'
+import { View, Text, Button, TouchableOpacity, StyleSheet, Image, Alert } from 'react-native'
 
-const User = () => {
+
+//import image from '../assets/splash.png'
+
+const User = ({image, name, profileURL, navigation}) => {
     //const {image, name, profile} = route.params
     return (
-        <View>
-            <TouchableOpacity style={styles.container}>
+        
+            <TouchableOpacity style={styles.container} onPress={()=>navigation.navigate('Profile',{
+                image,
+                name,
+                profileURL
+            })}>
             <View style={styles.imageContainer}>
-                <Image source={image} style={styles.image}/>
+                <Image source={{uri:image}} style={styles.image}/>
             </View>
 
-            <Text style={styles.text}>Name of user</Text>
+            <Text style={styles.text}>{name}</Text>
             </TouchableOpacity>
-        </View>
+        
     )
 }
 
@@ -25,7 +31,6 @@ const styles = StyleSheet.create({
         borderColor: "#00072d",
         padding: 20,
         alignItems:'center',
-        justifyContent:'space-between',
         marginHorizontal:5,
         marginTop:5,
         backgroundColor:'#0a2472'
@@ -35,11 +40,13 @@ const styles = StyleSheet.create({
         width:50,
         borderColor:'#FFF',
         borderWidth:1,
-        borderRadius:10
+        borderRadius:10,
+        marginRight:20
     },
     image:{
         width:'100%',
         height:'100%',
+        borderRadius:10
     },
     text:{
         fontSize:18,
