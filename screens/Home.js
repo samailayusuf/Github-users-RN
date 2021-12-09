@@ -19,7 +19,7 @@ const Home = ({ navigation }) => {
 
     const changeOption = (option) =>{
         setLocation(option)
-        Alert.alert(option)
+        //Alert.alert(option)
     }
 
     const check = (e) => {
