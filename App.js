@@ -5,6 +5,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Home from './screens/Home'
 import User from './screens/User'
 import Profile from './screens/Profile'
+import BannerAd from './screens/BannerAd'
 //import Settings from './screens/User'
 
 const Stack = createNativeStackNavigator();
@@ -17,7 +18,9 @@ export default function App() {
       <Stack.Screen name="User" component={User}/>
       <Stack.Screen name="Profile" component={Profile} />
       </Stack.Navigator>
+      <BannerAd/>
     </NavigationContainer>
+    
   );
 }
 
