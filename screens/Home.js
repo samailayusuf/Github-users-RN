@@ -5,6 +5,7 @@ import MyPicker from './MyPicker'
 import states from '../assets/states.js'
 import Form from './Form'
 import axios from 'axios'
+import BannerAd from './BannerAd'
 
 const Home = ({ navigation }) => {
     
@@ -62,15 +63,21 @@ const Home = ({ navigation }) => {
                   onPress={check}
                   language={language}/>
 
-            <ScrollView>
+            <View style={{height:30, width:'100%', marginBottom:0}}>
+                <BannerAd/>
+                <Text style={{fontSize:22}}>My Ad</Text>
+            </View>
+
+            <ScrollView style={{marginBottom:100}}>
             {users.map((element, key)=>(
             
             <User key={key} navigation={navigation} name={element.login} image={element.avatar_url} profileURL={element.html_url}/>
+            
 
-            ))}
+            )) }
             </ScrollView>
 
-            <ActivityIndicator size="large" />
+            
 
             
             

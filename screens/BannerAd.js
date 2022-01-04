@@ -9,9 +9,12 @@ const BannerAd = () => {
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
       <AdMobBanner
+        bannerSize="banner"
         adUnitID={unitID}
-        bannerSize="smartBanner"
-        servePersonalizedAds={true}
+        servePersonalizedAds={false}
+        onDidFailToReceiveAdWithError = {
+            (errorCode) => console.log(errorCode )
+         }
         style={{
           padding: 30,
         }}
