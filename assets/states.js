@@ -38,4 +38,4 @@ const states = [
     "Zamfara"
   ]
 
-  export default states;
+  export default states
