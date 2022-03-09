@@ -9,6 +9,6 @@ To run the project, clone to your local machine. and run the command `npm instal
 
 Feel free to reach out to me if you have any suggestions for me.
 
-Thank yoy.
+Thank you.
 🙂
 
