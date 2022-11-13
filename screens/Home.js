@@ -63,10 +63,10 @@ const Home = ({ navigation }) => {
                   onPress={check}
                   language={language}/>
 
-            <View style={{height:30, width:'100%', marginBottom:0}}>
+            {/* <View style={{height:30, width:'100%', marginBottom:0}}>
                 <BannerAd/>
                 <Text style={{fontSize:22}}>My Ad</Text>
-            </View>
+            </View> */}
 
             <ScrollView style={{marginBottom:100}}>
             {users.map((element, key)=>(
